@@ -1,0 +1,48 @@
+.a-icon {
+    font-size: 1.6rem;
+    cursor: pointer;
+
+    &.-whatWeDo {
+        font-size: 4rem;
+
+        @include media-up('_s') {
+            font-size: 4.5rem;
+        }
+
+        &.icon-cloud {
+            font-size: 3.5rem;
+
+            @include media-up('_s') {
+                font-size: 4rem;
+            }
+        }
+    }
+
+    &.-circle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 37px;
+        height: 37px;
+        font-size: 1.7rem;
+        border-radius: 50%;
+        background-color: $white;
+    }
+
+    &.icon-burger {
+        margin: 7px 12px 0 auto;
+        transition: color $transition-default-time;
+
+        @include media-up('_s') {
+            display: none;
+        }
+
+        &.-active {
+            color: $yellow-green;
+
+            &::before {
+                color: inherit;
+            }
+        }
+    }
+}

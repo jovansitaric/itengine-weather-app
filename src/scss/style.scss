@@ -1,7 +1,19 @@
-@import "vars/vars";
+@import 'abstracts/vars';
+@import 'abstracts/colors';
+@import 'abstracts/fonts';
+@import 'abstracts/mixins';
 
-@import "components/atom/atom";
-@import "components/module/module.scss";
-@import "components/pages/pages.scss";
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/fonts';
 
-@import "helpers.scss"
+@import 'layout/grid';
+
+@import 'utils/utils';
+@import 'utils/components';
+
+@import 'components/atoms/atoms';
+@import 'components/modules/modules';
+@import 'components/pages/pages';
+
+@import './helpers.scss';

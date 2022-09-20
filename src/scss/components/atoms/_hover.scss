@@ -1,0 +1,44 @@
+.a-hover {
+    
+    &.-color {
+
+        &::before {
+            transition: color $transition-default-time;
+        }
+
+        &:hover {
+
+            &.-effectOne {
+                color: $yellow-green;
+    
+                &::before {
+                    color: $yellow-green;
+                }
+            }
+        
+            &.-effectTwo {
+                color: $olive-green;
+    
+                &::before {
+                    color: $olive-green;
+                }
+            }
+            
+            &.-effectThree {
+                color: $teal;
+    
+                &::before {
+                    color: $teal;
+                }
+            }
+        
+            &.-effectFour {
+                color: $blue-2;
+    
+                &::before {
+                    color: $blue-2;
+                }
+            }
+        }
+    }
+}

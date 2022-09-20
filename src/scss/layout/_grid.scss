@@ -1,0 +1,372 @@
+@use "sass:math";
+
+._wr {
+  width: 100%;
+  max-width: 330px;
+  padding-left: $grid-gutter;
+  padding-right: $grid-gutter;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include media-up("_xs") {
+    max-width: 440px;
+  }
+
+  @include media-up("_m") {
+    max-width: 705px;
+  }
+
+  @include media-up("_l") {
+    max-width: 900px;
+  }
+
+  @include media-up("_xl") {
+    max-width: 1110px;
+  }
+
+  @include media-up("_xxl") {
+    max-width: 1220px;
+  }
+}
+
+._wr-f {
+  width: 100%;
+  padding-left: $grid-gutter;
+  padding-right: $grid-gutter;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+._w {
+  display: flex;
+  flex-wrap: wrap;
+  // width: 100%;
+  margin-left: -$grid-gutter;
+  margin-right: -$grid-gutter;
+}
+
+/* All devices */
+._1 {
+  width: 8.33%;
+}
+._2 {
+  width: 16.66%;
+}
+._3 {
+  width: 25%;
+}
+._4 {
+  width: 33.33%;
+}
+._5 {
+  width: 41.66%;
+}
+._6 {
+  width: 50%;
+}
+._7 {
+  width: 58.33%;
+}
+._8 {
+  width: 66.66%;
+}
+._9 {
+  width: 75%;
+}
+._10 {
+  width: 83.33%;
+}
+._11 {
+  width: 91.66%;
+}
+._12 {
+  width: 100%;
+}
+
+._1,
+._2,
+._3,
+._4,
+._5,
+._6,
+._7,
+._8,
+._9,
+._10,
+._11,
+._12,
+._xs1,
+._xs2,
+._xs3,
+._xs4,
+._xs5,
+._xs6,
+._xs7,
+._xs8,
+._xs9,
+._xs10,
+._xs11,
+._xs12,
+._s1,
+._s2,
+._s3,
+._s4,
+._s5,
+._s6,
+._s7,
+._s8,
+._s9,
+._s10,
+._s11,
+._s12,
+._m1,
+._m2,
+._m3,
+._m4,
+._m5,
+._m6,
+._m7,
+._m8,
+._m9,
+._m10,
+._m11,
+._m12,
+._l1,
+._l2,
+._l3,
+._l4,
+._l5,
+._l6,
+._l7,
+._l8,
+._l9,
+._l10,
+._l11,
+._l12,
+._xl1,
+._xl2,
+._xl3,
+._xl4,
+._xl5,
+._xl6,
+._xl7,
+._xl8,
+._xl9,
+._xl10,
+._xl11,
+._xl12 {
+  position: relative;
+  width: 100%;
+  padding-left: math.div($grid-gutter, 2);
+  padding-right: math.div($grid-gutter, 2);
+}
+
+@media only screen and (min-width: 480px) {
+  /* For tablets: */
+  ._s1 {
+    width: 8.33%;
+  }
+  ._s2 {
+    width: 16.66%;
+  }
+  ._s3 {
+    width: 25%;
+  }
+  ._s4 {
+    width: 33.33%;
+  }
+  ._s5 {
+    width: 41.66%;
+  }
+  ._s6 {
+    width: 50%;
+  }
+  ._s7 {
+    width: 58.33%;
+  }
+  ._s8 {
+    width: 66.66%;
+  }
+  ._s9 {
+    width: 75%;
+  }
+  ._s10 {
+    width: 83.33%;
+  }
+  ._s11 {
+    width: 91.66%;
+  }
+  ._s12 {
+    width: 100%;
+  }
+}
+
+/* Custom tablet breakpoint */
+@media only screen and (min-width: 768px) {
+  /* For tablets: */
+  ._m1 {
+    width: 8.33%;
+  }
+  ._m2 {
+    width: 16.66%;
+  }
+  ._m3 {
+    width: 25%;
+  }
+  ._m4 {
+    width: 33.33%;
+  }
+  ._m5 {
+    width: 41.66%;
+  }
+  ._m6 {
+    width: 50%;
+  }
+  ._m7 {
+    width: 58.33%;
+  }
+  ._m8 {
+    width: 66.66%;
+  }
+  ._m9 {
+    width: 75%;
+  }
+  ._m10 {
+    width: 83.33%;
+  }
+  ._m11 {
+    width: 91.66%;
+  }
+  ._m12 {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  /* For desktop: */
+  ._l1 {
+    width: 8.33%;
+  }
+  ._l2 {
+    width: 16.66%;
+  }
+  ._l3 {
+    width: 25%;
+  }
+  ._l4 {
+    width: 33.33%;
+  }
+  ._l5 {
+    width: 41.66%;
+  }
+  ._l6 {
+    width: 50%;
+  }
+  ._l7 {
+    width: 58.33%;
+  }
+  ._l8 {
+    width: 66.66%;
+  }
+  ._l9 {
+    width: 75%;
+  }
+  ._l10 {
+    width: 83.33%;
+  }
+  ._l11 {
+    width: 91.66%;
+  }
+  ._l12 {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  /* For desktop: */
+  ._xl1 {
+    width: 8.33%;
+  }
+  ._xl2 {
+    width: 16.66%;
+  }
+  ._xl3 {
+    width: 25%;
+  }
+  ._xl4 {
+    width: 33.33%;
+  }
+  ._xl5 {
+    width: 41.66%;
+  }
+  ._xl6 {
+    width: 50%;
+  }
+  ._xl7 {
+    width: 58.33%;
+  }
+  ._xl8 {
+    width: 66.66%;
+  }
+  ._xl9 {
+    width: 75%;
+  }
+  ._xl10 {
+    width: 83.33%;
+  }
+  ._xl11 {
+    width: 91.66%;
+  }
+  ._xl12 {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  /* For desktop: */
+  ._xxl1 {
+    width: 8.33%;
+  }
+  ._xxl2 {
+    width: 16.66%;
+  }
+  ._xxl3 {
+    width: 25%;
+  }
+  ._xxl4 {
+    width: 33.33%;
+  }
+  ._xxl5 {
+    width: 41.66%;
+  }
+  ._xxl6 {
+    width: 50%;
+  }
+  ._xxl7 {
+    width: 58.33%;
+  }
+  ._xxl8 {
+    width: 66.66%;
+  }
+  ._xxl9 {
+    width: 75%;
+  }
+  ._xxl10 {
+    width: 83.33%;
+  }
+  ._xxl11 {
+    width: 91.66%;
+  }
+  ._xxl12 {
+    width: 100%;
+  }
+}
+
+div[class^="_s"],
+div[class^="_m"],
+div[class^="_l"],
+div[class^="_xl"],
+div[class^="_xxl"] {
+  padding-left: $grid-gutter;
+  padding-right: $grid-gutter;
+}

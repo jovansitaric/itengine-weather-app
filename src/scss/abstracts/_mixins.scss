@@ -1,0 +1,102 @@
+// Desktop media style
+@mixin media-up($value) {
+    @if $value == "_" {
+        @media only screen and (min-width: $_) {
+            @content;
+        }
+    } @else if $value == "_xs" {
+        @media only screen and (min-width: 400px) {
+            @content;
+        }
+    } @else if $value == "_s" {
+        @media only screen and (min-width: $_s) {
+            @content;
+        }
+    } @else if $value == "_m" {
+        @media only screen and (min-width: $_m) {
+            @content;
+        }
+    } @else if $value == "_l" {
+        @media only screen and (min-width: 992px) {
+            @content;
+        }
+    } @else if $value == "_xl" {
+        @media only screen and (min-width: 1200px) {
+            @content;
+        }
+    } @else if $value == "_xxl" {
+        @media only screen and (min-width: 1440px) {
+            @content;
+        }
+    } @else {
+        @media only screen and (min-width: $value) and (max-width: $second-value) {
+            @content;
+        }
+    }
+}
+
+// Mobile media style
+@mixin media-down($value) {
+    @if $value == "_" {
+        @media only screen and (max-width: $_) {
+            @content;
+        }
+    } @else if $value == "_xs" {
+        @media only screen and (max-width: 400px) {
+            @content;
+        }
+    } @else if $value == "_s" {
+        @media only screen and (max-width: $_s) {
+            @content;
+        }
+    } @else if $value == "_m" {
+        @media only screen and (max-width: $_m) {
+            @content;
+        }
+    } @else if $value == "_l" {
+        @media only screen and (max-width: 992px) {
+            @content;
+        }
+    } @else if $value == "_xl" {
+        @media only screen and (max-width: 1200px) {
+            @content;
+        }
+    } @else if $value == "_xxl" {
+        @media only screen and (max-width: 1440px) {
+            @content;
+        }
+    } @else {
+        @media only screen and (max-width: $value) {
+            @content;
+        }
+    }
+}
+
+@mixin first-child-none($property, $value) {
+    #{$property}: $value;
+
+    &:first-child {
+        #{$property}: 0;
+    }
+}
+
+@mixin last-child-none($property, $value) {
+    #{$property}: $value;
+
+    &:last-child {
+        #{$property}: 0;
+    }
+}
+
+@mixin circle($value) {
+    width: $value;
+    height: $value;
+    border-radius: $value;
+}
+
+@mixin inset($size: 0) {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}

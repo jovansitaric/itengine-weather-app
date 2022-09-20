@@ -1,0 +1,29 @@
+.a-button {
+
+    &.-main {
+        padding: 0.75em 1.25em;
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        background-color: $white-2;
+        border-radius: 32px;
+        color: $white;
+        border: 1px solid transparent;
+        cursor: pointer;
+        outline: none;
+        transition: background-color $transition-default-time, border-color $transition-default-time, color $transition-default-time;
+
+        &:hover,
+        &:focus {
+            border-color: $white;
+        }
+
+        > .temperatures {
+            @include first-child-none('margin-left', 5px);
+            color: inherit;
+
+            &.-disabled {
+                color: $white-3;
+            }
+        }
+    }
+}

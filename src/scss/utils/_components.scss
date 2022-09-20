@@ -1,0 +1,25 @@
+@mixin arrowLeft() {
+    
+    &::after {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border: 2px solid $light-gray-4;
+        border-top: none;
+        border-right: none;
+        transform: rotate(45deg);
+    }
+}
+
+@mixin arrowRight() {
+
+    &::after {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border: 2px solid $light-gray-4;
+        border-top: none;
+        border-right: none;
+        transform: rotate(-135deg);
+    }
+}

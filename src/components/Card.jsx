@@ -1,28 +1,44 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import WeatherIcon from "./WeatherIcon";
 
-const Card = ({ day, isMetric }) => {
+const round = (number) => {
+    return Math.round(number);
+};
+
+const dateOptions = {
+    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+}
+
+const Card = ({ data, isMetric, className }) => {
+    const { day, date } = data;
     const temperatures = {
-        avgtemp: isMetric ? day.avgtemp_c : day.avgtemp_f,
-        minTemp: isMetric ? day.mintemp_c : day.mintemp_f,
-        maxTemp: isMetric ? day.maxtemp_c : day.maxtemp_f,
+        avgtemp: isMetric ? round(day.avgtemp_c) : round(day.avgtemp_f),
+        minTemp: isMetric ? round(day.mintemp_c) : round(day.mintemp_f),
+        maxTemp: isMetric ? round(day.maxtemp_c) : round(day.maxtemp_f),
     };
+
+    const currentDate = new Date(date).toLocaleString("en-US", dateOptions);
+    console.log(currentDate);
+
     const { code, text } = day.condition;
 
     return (
-        <CardContainer className="m-card">
+        <Link to="/weather" className={`m-card ${className ? className : ''}`}>
             <div className="m-card__content">
+                <span className="m-card__content--date">{currentDate}</span>
                 <WeatherIcon text={text} />
-                <h2>{text}</h2>
-                <span>{temperatures.avgtemp}</span>
+                <h2 className="m-card__content--heading">{temperatures.avgtemp} {`${isMetric ? '\u2103' : '\u2109'} `}</h2>
+                <div className="m-card__content--temp">
+                    <span>{temperatures.maxTemp}</span>
+                    <span className="-light">/</span>
+                    <span className="-light">{temperatures.minTemp}</span>
+                </div>
+                <p className="m-card__content--text">{text}</p>
             </div>
-        </CardContainer>
+        </Link>
     );
 };
-
-const CardContainer = styled.div`
-    
-`
 
 export default Card;

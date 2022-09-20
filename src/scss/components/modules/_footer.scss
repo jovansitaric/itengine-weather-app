@@ -1,0 +1,49 @@
+.m-footer {
+    margin-top: 54px;
+    padding: 12px 9px;
+    background-color: $light-gray-3;
+
+    @include media-up('_s') {
+        padding: 10px 30px;
+    }
+
+    @include media-up('_m') {
+        margin-top: 80px;
+        padding: 10px 39px;
+    }
+
+    > ._wr {
+
+        @include media-up('_m') {
+            max-width: 690px;
+        }
+
+        > ._w {
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+
+    .a-icon.icon-top {
+        margin-right: 3px;
+        font-size: 2.3rem;
+
+        @include media-up('_s') {
+            margin-right: 0;
+        }
+
+        &::before {
+            transition: color $transition-default-time;
+        }
+
+        &:hover,
+        &:active,
+        &:focus,
+        &:visited:not(:last-child) {
+
+            &::before {
+                color: $yellow-green;
+            }
+        }
+    }
+}

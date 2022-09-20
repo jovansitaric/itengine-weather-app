@@ -7,8 +7,8 @@ const WeatherIcon = ({ text }) => {
 
 const Icon = ({ text }) => {
 
-    if (text.includes('sunny')) {
-        return <Sunny />
+    if (text.includes('snow')) {
+        return <Snow />
     }
 
     else if (text.includes('rain')) {
@@ -20,7 +20,7 @@ const Icon = ({ text }) => {
     }
 
     else {
-        return <Snow />
+        return <Sunny />
     }
 };
 

@@ -1,0 +1,94 @@
+.m-slider {
+
+    &.-hero {
+        min-height: 180px;
+        border-bottom: 1px solid $light-gray-3;
+
+        @include media-up('_s') {
+            min-height: auto;
+            border-bottom: none;
+        }
+
+        .swiper-pagination {
+            display: none;
+            margin-left: 3px;
+            margin-bottom: 4px;
+
+            @include media-up('_s') {
+                display: block;
+            }
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: $yellow-green;
+        }
+
+        .swiper-pagination-bullet {
+            @include first-child-none('margin-left', 3px);
+            width: 9px;
+            height: 9px;
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            top: 84%;
+
+            @include media-up('_s') {
+                display: none;
+            }
+        }
+
+        .swiper-button-prev {
+            left: -3px;
+
+            @include arrowLeft;
+        }
+
+        .swiper-button-next {
+            right: -3px;
+            
+            @include arrowRight;
+        }
+
+        .swiper-button-disabled {
+            opacity: 1;
+        }
+    }
+
+    &__slide {
+
+        .-hero & {
+            min-height: 120px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid $light-gray-3;
+
+            @include media-up('_s') {
+                min-height: 200px;
+                background-size: 125% auto;
+                background-position: 38% 50%;
+            }
+
+            @include media-up('_m') {
+                min-height: 310px;
+                background-size: cover;
+                background-position: center;
+            }
+        }
+    }
+
+    &__title {
+
+        .-hero & {
+            padding: 21px 29px;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            color: $dark-gray;
+
+            @include media-up('_s') {
+                display: none;
+            }
+        }
+    }
+}

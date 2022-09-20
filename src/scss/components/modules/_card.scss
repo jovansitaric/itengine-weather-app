@@ -1,0 +1,42 @@
+.m-card {
+    font-size: 1rem;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2em;
+        text-align: center;
+        color: $white;
+        background-color: $white-2;
+
+        > * {
+            @include first-child-none('margin-top', 10px);
+        }
+
+        .-main & {
+            font-size: 1.5rem;
+            background-color: transparent;
+        }
+
+        &--temp {
+            display: flex;
+            font-size: 1.2em;
+        }
+
+        &--date {
+            font-size: 2em;
+            line-height: 25px;
+        }
+
+        &--heading {
+            font-size: 3.2em;
+        }
+
+        &--text {
+            font-size: 1.5em;
+            line-height: 20px;
+        }
+    }
+}
