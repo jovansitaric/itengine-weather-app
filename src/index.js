@@ -11,13 +11,16 @@ import {
 } from "react-router-dom";
 import SingleWeather from './components/SingleWeather';
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path='/' element={<App/>}>
-      <Route path='/weather' element={<SingleWeather />} />
-    </Route>
-  )
-);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />
+  },
+  {
+    path: "/weather/:date",
+    element: <SingleWeather />
+  }
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -8,7 +8,7 @@ const round = (number) => {
 };
 
 const dateOptions = {
-    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+    weekday: 'short', year: 'numeric', month: 'long', day: 'numeric'
 }
 
 const Card = ({ data, isMetric, className }) => {
@@ -25,7 +25,7 @@ const Card = ({ data, isMetric, className }) => {
     const { code, text } = day.condition;
 
     return (
-        <Link to="/weather" className={`m-card ${className ? className : ''}`}>
+        <Link to={`/weather/${date}`} className={`m-card ${className ? className : ''}`}>
             <div className="m-card__content">
                 <span className="m-card__content--date">{currentDate}</span>
                 <WeatherIcon text={text} />

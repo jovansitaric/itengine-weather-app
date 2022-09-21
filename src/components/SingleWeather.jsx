@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useParams } from "react-router-dom";
+import { ApiDataProvider } from './ApiDataContext';
 
 const SingleWeather = () => {
-    return <div>SingleWeather</div>;
+    const { date } = useParams();
+
+    return (
+        <ApiDataProvider>
+            <div>
+                SingleWeather: {date}
+            </div>
+        </ApiDataProvider>
+    );
 };
 
 export default SingleWeather;

@@ -1,6 +1,7 @@
 import "./scss/style.scss";
 import axios from "axios";
-import { useEffect, useId, useState } from "react";
+import { createContext, useEffect, useId, useRef, useState } from "react";
+import logo from './logo.svg';
 import styled from "styled-components";
 
 import goodWeather from './images/good-weather.jpg';
@@ -17,7 +18,6 @@ const MainContainer = styled.form`
 
 function App() {
     const [data, setData] = useState([]);
-    const [daysForecast, setDaysForecast] = useState(false);
     const [isMetric, setIsMetric] = useState(true);
     const [lat, setLat] = useState(false);
     const [lon, setLon] = useState(false);
@@ -37,6 +37,7 @@ function App() {
             fetchWithGeoLocation();
         }
 	}, [lat, lon])
+    
 
     const fetchWithGeoLocation = () => {
         console.log("fetchWithGeoLocation");
@@ -60,7 +61,9 @@ function App() {
     if (loading) {
         
         return (
-            <h2>Loading..</h2>
+            <div className="m-loader">
+                <img src={logo} className="m-loader__logo" alt="logo" />
+            </div>
         );
     }
 
