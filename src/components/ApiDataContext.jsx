@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { createContext, useContext, useEffect, useState } from "react";
+import logo from '../logo.svg';
 
-const ApiDataContext = createContext();
+export const ApiDataContext = createContext();
 
 export function ApiDataProvider({ children }) {
     const [data, setData] = useState([]);
@@ -42,11 +43,24 @@ export function ApiDataProvider({ children }) {
             });
     };
 
-    return (
-        <ApiDataContext.Provider value={data}>
-            {children}
-        </ApiDataContext.Provider>
-    );
+    if (loading) {
+        
+        return (
+            <div className="m-loader">
+                <h2>Loading...</h2>
+                <img src={logo} className="m-loader__logo" alt="logo" />
+            </div>
+        );
+    }
+
+    else {
+
+        return (
+            <ApiDataContext.Provider value={data}>
+                {children}
+            </ApiDataContext.Provider>
+        );
+    }
 }
 
 export function useAPI() {

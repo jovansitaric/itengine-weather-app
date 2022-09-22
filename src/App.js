@@ -1,102 +1,52 @@
 import "./scss/style.scss";
-import axios from "axios";
-import { createContext, useEffect, useId, useRef, useState } from "react";
-import logo from './logo.svg';
-import styled from "styled-components";
+import { useId, useState } from "react";
 
 import goodWeather from './images/good-weather.jpg';
 import Card from "./components/Card";
 import ToggleUnits from "./components/ToggleUnits";
-
-const MainContainer = styled.form`
-    min-height: 100vh;
-    background-image: linear-gradient(to bottom, #00000030, #00000030), url(${goodWeather});
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-`
+import { useAPI } from "./components/ApiDataContext";
+import { useUnits } from "./components/UnitsDataContext";
+import Location from "./components/Location";
 
 function App() {
-    const [data, setData] = useState([]);
-    const [isMetric, setIsMetric] = useState(true);
-    const [lat, setLat] = useState(false);
-    const [lon, setLon] = useState(false);
-    const [loading, setLoading] = useState(true);
+    const contextData = useAPI();
+    const data = contextData;
+    const { isMetric, setIsMetric } = useUnits();
     const id = useId();
 
-	useEffect(() => {
+    const currentDay = data.forecast.forecastday[0];
+    const forecast = data.forecast.forecastday.filter((forecast, index) => {
+        if (index === 0) return;
+        return forecast;
+    });
+    console.log(forecast);
 
-        if (!navigator.geolocation) return alert("Browser can't get location. Try different browser");
-            
-        navigator.geolocation.getCurrentPosition((position) => {
-            setLat(() => position.coords.latitude);
-            setLon(() => position.coords.longitude);
-        });
-
-        if (lat && lon) {
-            fetchWithGeoLocation();
-        }
-	}, [lat, lon])
-    
-
-    const fetchWithGeoLocation = () => {
-        console.log("fetchWithGeoLocation");
-
-        const geoLocationUrl = `${process.env.REACT_APP_API_URL}forecast.json?${process.env.REACT_APP_API_KEY}&q=${lat},${lon}&days=6`;
-
-        axios
-            .get(geoLocationUrl)
-            .then((response) => {
-                console.log(response);
-                setData(response.data);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-            .finally(() => {
-                setLoading(false);
-            })
-    };
-
-    if (loading) {
-        
-        return (
-            <div className="m-loader">
-                <img src={logo} className="m-loader__logo" alt="logo" />
+    return (
+        <section className="m-app" style={{backgroundImage: `url(${goodWeather})`}}>
+            <div className="_wr">
+                <div className="_w">
+                    <Location location={data.location} />
+                </div>
             </div>
-        );
-    }
-
-    else {
-        const currentDay = data.forecast.forecastday[0];
-        const forecast = data.forecast.forecastday.filter((forecast, index) => {
-            if (index === 0) return;
-            return forecast;
-        });
-        console.log(forecast);
-
-        return (
-            <MainContainer action="" className="m-app">
-                <div className="_wr">
-                    <div className="_w">
-                        <ToggleUnits isMetric={isMetric} setIsMetric={setIsMetric} />
-                    </div>
+            <div className="_wr m-section">
+                <div className="_w">
+                    <ToggleUnits isMetric={isMetric} setIsMetric={setIsMetric} />
                 </div>
-                <div className="_wr m-section">
-                    <div className="_w -jcc">
-                        <Card className="-main" isMetric={isMetric} data={currentDay} /> 
-                    </div>
+            </div>
+            <div className="_wr m-section">
+                <div className="_w -jcc">
+                    <Card className="-main" isMetric={isMetric} data={currentDay} /> 
                 </div>
-                <div className="_wr m-section">
-                    <div className="_w -jcsb">
-                        {forecast.map((weather, index) => {
-                            return <Card className='_l2' isMetric={isMetric} data={weather} key={`${id}-${index}`} />
-                        })}
-                    </div>
+            </div>
+            <div className="_wr m-section">
+                <div className="_w -jcsb">
+                    {forecast.map((weather, index) => {
+                        return <Card className='_l2' isMetric={isMetric} data={weather} key={`${id}-${index}`} />
+                    })}
                 </div>
-            </MainContainer> 
-        )
-    }
+            </div>
+        </section> 
+    )
 }
 
 export default App;
