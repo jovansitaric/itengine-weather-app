@@ -1,5 +1,9 @@
 .m-card {
-    font-size: 1rem;
+    @include first-child-none('margin-top', 20px);
+
+    @include media-up('_l') {
+        margin-top: 0;
+    }
 
     &__content {
         display: flex;
@@ -12,6 +16,7 @@
         border-radius: 6px;
         background-color: $white-2;
         outline: none;
+        cursor: pointer;
         transition: background-color $transition-default-time;
 
         &:hover,
@@ -33,6 +38,10 @@
             }
         }
 
+        .-suggestedLocation & {
+            pointer-events: none;
+        }
+
         &--temp {
             display: flex;
             font-size: 1.2em;
@@ -40,7 +49,7 @@
 
         &--date {
             font-size: 2em;
-            line-height: 25px;
+            line-height: 40px;
         }
 
         &--heading {
@@ -51,5 +60,12 @@
             font-size: 1.5em;
             line-height: 20px;
         }
+    }
+}
+
+.m-card.-focus {
+
+    > div {
+        pointer-events: all;
     }
 }

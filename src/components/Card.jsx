@@ -7,16 +7,14 @@ const dateOptions = {
 }
 
 const Card = ({ data, isMetric, className }) => {
-    console.log(data);
     const { day, date } = data;
     const temperatures = {
-        avgtemp: isMetric ?  Math.round(day.avgtemp_c) :  Math.round(day.avgtemp_f),
-        minTemp: isMetric ?  Math.round(day.mintemp_c) :  Math.round(day.mintemp_f),
-        maxTemp: isMetric ?  Math.round(day.maxtemp_c) :  Math.round(day.maxtemp_f),
+        avgtemp: isMetric ? Math.round(day.avgtemp_c) : Math.round(day.avgtemp_f),
+        minTemp: isMetric ? Math.round(day.mintemp_c) : Math.round(day.mintemp_f),
+        maxTemp: isMetric ? Math.round(day.maxtemp_c) : Math.round(day.maxtemp_f),
     };
 
     const currentDate = new Date(date).toLocaleString("en-GB", dateOptions);
-    console.log(currentDate);
 
     const { code, text } = day.condition;
 

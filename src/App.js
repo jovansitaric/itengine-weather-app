@@ -1,5 +1,5 @@
 import "./scss/style.scss";
-import { useId, useState } from "react";
+import { useId } from "react";
 
 import goodWeather from './images/good-weather.jpg';
 import Card from "./components/Card";
@@ -7,6 +7,7 @@ import ToggleUnits from "./components/ToggleUnits";
 import { useAPI } from "./components/ApiDataContext";
 import { useUnits } from "./components/UnitsDataContext";
 import Location from "./components/Location";
+import { Link } from "react-router-dom";
 
 function App() {
     const contextData = useAPI();
@@ -16,21 +17,29 @@ function App() {
 
     const currentDay = data.forecast.forecastday[0];
     const forecast = data.forecast.forecastday.filter((forecast, index) => {
-        if (index === 0) return;
+        if (index === 0) return false;
         return forecast;
     });
-    console.log(forecast);
 
     return (
-        <section className="m-app" style={{backgroundImage: `url(${goodWeather})`}}>
+        <section className="m-section m-app" style={{backgroundImage: `url(${goodWeather})`}}>
             <div className="_wr">
                 <div className="_w">
-                    <Location location={data.location} />
+                    <Link to="/addCity" className="a-icon -plus" />
+                </div>
+            </div>
+            <div className="m-section _wr">
+                <div className="_w">
+                    <div className="_12">
+                        <Location location={data.location} />
+                    </div>
                 </div>
             </div>
             <div className="_wr m-section">
                 <div className="_w">
-                    <ToggleUnits isMetric={isMetric} setIsMetric={setIsMetric} />
+                    <div className="_12">
+                        <ToggleUnits isMetric={isMetric} setIsMetric={setIsMetric} />
+                    </div>
                 </div>
             </div>
             <div className="_wr m-section">

@@ -16,6 +16,41 @@
         }
     }
 
+
+    &.-main {
+        pointer-events: none;
+    }
+
+    &.-dailyInfo {
+        pointer-events: none;
+
+        .m-card {
+           margin-top: $grid-gutter * 2;
+        }
+    }
+
+    &.-addCity {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        > * {
+            @include first-child-none('margin-left', 20px);
+        }
+    }
+
+    &.-suggestedLocation {
+
+        .m-card {
+            margin-top: $grid-gutter * 2;
+            border: 1px solid transparent;
+
+            &.-focus {
+                border: 1px solid $white;
+            }
+        }
+    }
+
     &__content {
         
         .-location & {

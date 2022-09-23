@@ -1,0 +1,92 @@
+.a-icon {
+
+    &.-feelsLike { 
+        position: relative;
+        
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 10px;
+            height: 10px;
+            margin-left: 10px;
+            border-top: 2px solid;
+            border-left: 2px solid;
+            border-color: currentColor;
+        }
+
+        &::before {
+            transform: translateY(-30%) rotate(45deg);
+            border-color: red;
+        }
+
+        &::after {
+            transform: translateY(-70%) rotate(-135deg);
+            border-color: blue;
+        }
+
+        &.-cold {
+
+            &::before {
+                content: none;
+            }
+        }
+
+        &.-warm {
+
+            &::after {
+                content: none;
+            }
+        }
+
+        &.-none {
+
+            &::before,
+            &::after {
+                content: none;
+            }
+        }
+    }
+
+    &.-plus {
+        @include circle(45px);
+        position: relative;
+        background-color: $white-3;
+        outline: none;
+        transition: background-color 400ms;
+
+        &:hover,
+        &:focus {
+            background-color: transparent;
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 2px;
+            height: calc(100% - 25px);
+            background-color: $white;
+            transform: translate(-50%, -50%);
+        }
+
+        &::after {
+            width: calc(100% - 25px);
+            height: 2px;
+        }
+    }
+
+    &.-close {
+
+        &::before,
+        &::after {
+            content: '';
+            width: 1px;
+            height: 10px;
+            background-color: $white;
+        }
+    }
+}

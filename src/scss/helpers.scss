@@ -1,3 +1,7 @@
+.-flex {
+    display: flex;
+}
+
 .-fdc {
     flex-direction: column;
 }
@@ -25,6 +29,10 @@
 .-mha {
     margin-left: auto;
     margin-right: auto;
+}
+
+.-hidden {
+    display: none;
 }
 
 .-light {

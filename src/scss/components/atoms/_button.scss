@@ -17,6 +17,10 @@
             border-color: $white;
         }
 
+        &.-small {
+            font-size: 1.2rem
+        }
+
         > .temperatures {
             @include first-child-none('margin-left', 5px);
             color: inherit;
@@ -24,6 +28,13 @@
             &.-disabled {
                 color: $white-3;
             }
+        }
+    }
+
+    &.-suggested {
+
+        .-focus & {
+            display: inline-block;
         }
     }
 }

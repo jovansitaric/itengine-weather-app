@@ -1,0 +1,21 @@
+.a-input {
+
+    &.-main {
+        padding: 1.25em;
+        border: 0;
+        outline: 0;
+        background-color: $white-2;
+        color: $white;
+        border: 1px solid transparent;
+        border-radius: 32px;
+        transition: border-color $transition-default-time;
+
+        &:focus {
+            border: 1px solid $white;
+        }
+
+        &::-webkit-search-cancel-button {
+            -webkit-appearance: none;
+        }
+    }
+}
